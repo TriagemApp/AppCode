@@ -1,0 +1,40 @@
+CREATE TABLE paciente (
+paciente_id integer,
+paciente_nome varchar2(45),
+paciente_rg varchar2(45), 
+paciente_cpf varchar2(45),
+paciente_end varchar2(60),
+paciente_fone varchar2(35),
+paciente_dt_nasc date,
+primary key (paciente_id)
+)
+
+
+CREATE TABLE unidade_Hospitalar(
+hospital_id varchar2(20) not null,
+hospital_unidade varchar2(40),
+hospital_cidade varchar2(30),
+hospital_fone varchar2(30),
+hospital_end varchar2(60),
+primary key (hospital_id)
+)
+
+
+CREATE TABLE medico(
+medico_nome varchar2(45),
+medico_id varchar2(20) not null,
+medico_cpf varchar2(20),
+especialidade_id varchar2(20) not null,
+primary key (medico_id),
+foreign key (especialidade_id) references especialidade (especialidade_id)
+)
+
+
+CREATE TABLE consulta(
+paciente_id integer,
+hospital_id varchar2(20),
+medico_id varchar2(20),
+foreign key (paciente_id) references paciente (paciente_id),
+foreign key (hospital_id) references unidade_Hospitalar (hospital_id),
+foreign key (medico_id) references paciente (medico_id)
+)
