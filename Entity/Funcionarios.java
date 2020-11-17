@@ -8,7 +8,9 @@ public class Funcionarios {
 	private short Data_Admissao;
 	private short Data_Nascimento;
 	private short Data_Demissao;
-	
+	private String Status;
+
+
 	public void Verifica_Dados() {
 		
 	}
@@ -84,5 +86,14 @@ public class Funcionarios {
 	public void setData_Demissao(short data_Demissao) {
 		Data_Demissao = data_Demissao;
 	}
+
+  public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
 	
 }
