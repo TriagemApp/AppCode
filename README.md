@@ -13,9 +13,9 @@ A proposta é otimizar a interação do convênio e Hospital e quando o paciente
 de saúde, ser direcionado para a fila de triagem e ou atendimento médico de forma mais ágil.
 
 - No servidor, o sistema é desenvolvido em Java;
-- O banco de dados é relacional e executado no SGBD MySQL. Para modelagem foi utilizado o
+- O banco de dados é relacional e executado no Realtime Database. Para modelagem foi utilizado o
 brModelo;
 - Como plataforma de acesso, frontend, o sistema é projetado para permitir acesso por
-dispositivo móvel através de aplicativo PWA desenvolvido em Angular e desenvolvido em
+dispositivo móvel através de aplicativo desenvolvido em
 HTML 5, Css3 e JavaScript.
 
