@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="css/style1.css" rel="stylesheet" />
+    <script src="Scripts.js" type="text/javascript"></script>
+    <title>TriagemApp</title>
+</head>
+
+<body onload="onload()">
+    <div class="Fundo">
+        <div id="login">
+            <img src="reto1.png" class="retoimg"/>
+            <img src="Imagem.png" class="ima"/>
+            <img src="Imagem24.png" class="redondoimg"/>
+            <div class="titulo"> LOGIN </div>
+
+            <div class="campos">
+                <label for="user" class="imgusuario"> <input type="text" name="user" id="user" placeholder="USERNAME" /> </label>
+                <label for="pass" class="imgsenha"> <input type="password" name="pass" id="pass" placeholder="********" /> </label>
+                <div class="aconts">
+                    <img src="google.png"/>
+                    <img src="face.png"/>
+                </div>
+                <a id="esqSenha" onclick="upReset()"> ESQUECEU A SENHA? </a>
+            </div>
+
+            <button class="btn" onclick="acessa()"> ACESSAR </button>
+            <a id="cadastrar" href="cadastro.html" role="button"> CADASTRAR </a>
+        </div>
+        
+        <!--<div id="resetSenha" hidden>
+            <img src="Imagem24.png" class="fundoCadast" />
+            <img src="Imagem.png" class="ima"/>
+            <div class="titulo"> Troca de senha </div>
+            
+            <div class="campos">
+                <input type="email" name="emailC" id="emailC" placeholder="exemplo@mail.com" />
+                <input type="text" name="userR" id="userR" placeholder="Usuário" />
+                <input type="password" name="passR" id="passR" placeholder="Código" />
+            </div>
+            <button class="btn" id="registroR" onclick="downReset()"> Registrar </button>
+        </div>-->
+    <!---------------------------------------------------------------------------------------------->
+</div>    
+</body>
+
+</html>
