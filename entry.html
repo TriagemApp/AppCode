@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="components/loader.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/style1.css" rel="stylesheet" />
+    <script src="components/loader.js"></script>
+</head>
+<body>
+  <div class="Fundo">
+          <br /><br /><br />
+          <h2>Triagem</h2>
+          <br /><br />
+           <article>   
+           
+           <h4 data-bind="createdAt"> Loading... </h4> 
+            
+             
+            <small>
+            <small> 
+                <span data-bind="per1" style="font-weight: bold"></span> |               
+                <span data-bind="res1"></span> <br /> 
+                <span data-bind="per2" style="font-weight: bold"></span> |
+                <span data-bind="res2"></span> <br />
+                <span data-bind="per3" style="font-weight: bold"></span> |                    
+                <span data-bind="res3"></span> <br /> 
+                <span data-bind="per4" style="font-weight: bold"></span> |
+                <span data-bind="res4"></span> <br />
+                <span data-bind="per5" style="font-weight: bold"></span> |
+                <span data-bind="res5"></span> <br />     
+
+            </small></small>
+            <hr style="width:90%; height:2px; margin-left:0px; border-width:0; color:black; background-color:black"> 
+
+      
+
+            
+
+            
+
+            
+            <div>
+                <button id="delete" class="btn btn-lg btn-danger">Apagar</button>
+                &nbsp;
+
+                
+                <a href="" id="update" class="btn btn-lg btn-primary">Atualizar</a>
+            </div>
+
+          
+
+
+        </article>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="http://cdn.ckeditor.com/4.5.10/standard/ckeditor.js"></script>
+
+    <script>
+        // firebase config
+       var firebaseConfig = {
+    apiKey: "AIzaSyBVvPiov7g1b7qu4My5QzmV_cxZYB8zcrs",
+    authDomain: "tcc-base.firebaseapp.com",
+    databaseURL: "https://tcc-base-default-rtdb.firebaseio.com",
+    projectId: "tcc-base",
+    storageBucket: "tcc-base.appspot.com",
+    messagingSenderId: "614509811465",
+    appId: "1:614509811465:web:ff274ea1fafdacac2725d8"
+  };
+
+firebase.initializeApp(firebaseConfig);
+
+
+  /////////////////////////////////////
+
+        /*********************************\
+         * Fetch and display the entry *
+        \*********************************/
+
+        var entry_id = $_GET('id');
+
+        if (entry_id) {
+            var added_views = false;
+            var Entry = firebase.database().ref('Prontuário').child(entry_id);
+
+            Entry.on('value', function (r) {
+                var entry = r.val();
+
+                if (entry) {
+
+                    entry['createdAt'] = datetimeFormat(entry.createdAt);
+
+                    $('[data-bind]').each(function () {
+                        $(this).html(entry[$(this).data('bind')]);
+                    });
+                    
+                   
+                    
+                   
+                } else { // content not found
+                    window.location.href = 'prontuarios.html';
+                }
+            });
+            
+            // update button
+            $('#update').attr('href','update.html?id='+entry_id);
+            
+            // delete button
+            $('#delete').click(function(){
+                if(confirm('Este prontuário será deletado permanentemente. Você tem certeza?')){
+                    Entry.remove(); // this will trigger Entry.on('value') immediatly
+                }
+            });
+        } else {
+            alert('Este atendimento não exite.');
+            window.location.href = 'prontuarios.html';
+        }
+
+        /*************\
+         * Utilities *
+        \*************/
+
+        function $_GET(key) {
+            var queries = window.location.href.split('?').pop().split('&');
+            var params = {};
+            queries.map(function (query) {
+                var set = query.split('=');
+                params[set[0]] = set[1];
+            });
+
+            if (key) {
+                return params[key] || null;
+            } else {
+                return params;
+            }
+
+        }
+
+        function pad2Digit(num) {
+            return ('0' + num.toString()).slice(-2);
+        }
+
+        function datetimeFormat(timestamp) {
+            var dateObj = new Date(timestamp);
+            var en_month = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+            return ' ' +pad2Digit(dateObj.getUTCDate()) + '/ ' + en_month[dateObj.getMonth()] + ' / ' + (dateObj.getFullYear()) + ' ' + (dateObj.getHours()) + ':' + (dateObj.getMinutes());
+        }
+    </script>
+</body>
+</html>
