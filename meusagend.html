@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'"><link rel="stylesheet" href="components/loader.css">
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style1.css">
+    <script>
+        //
+        // TODO: Write JavaScript code here
+        //
+    </script>
+</head>
+<body>
+
+  <a href="profile.html" id="btnEntrar" role="button"><img src="left-arrow.png" class="seta" alt "boatos"></a>
+  <br /><br />
+            <h2>Minhas<br />Consultas</h2>
+            
+
+            <br />
+
+           <div class="container">
+            <div class="col-8 offset-2">
+        <div id="entries1" class="row">
+        </div>
+</div>
+</div>
+    
+    <br /><br /><br /><br /><br />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="http://cdn.ckeditor.com/4.5.10/standard/ckeditor.js"></script>
+
+    <script>
+        // firebase config
+        var firebaseConfig = {
+    apiKey: "AIzaSyBVvPiov7g1b7qu4My5QzmV_cxZYB8zcrs",
+    authDomain: "tcc-base.firebaseapp.com",
+    databaseURL: "https://tcc-base-default-rtdb.firebaseio.com",
+    projectId: "tcc-base",
+    storageBucket: "tcc-base.appspot.com",
+    messagingSenderId: "614509811465",
+    appId: "1:614509811465:web:ff274ea1fafdacac2725d8"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+        /////////////////////////////////////
+
+        var Blog = firebase.database().ref('Entry').orderByChild('date');
+
+        Blog.on('value', function (r) {
+
+            $('#entries1').html('Loading...');
+            var html = '';
+            r.forEach(function (item) {
+                entry = item.val()
+                html = '<br />' +
+                    '<a href="entry.html?id=' + item.getKey() + ' " style="text-decoration:none!important;color: black">' +
+                    '<div class="container>' +
+                    '<div class=">' +    
+                    '<div class="agendamentos"><br />' +
+                    '<h4>' + 'Senha:' + ' ' + excerpt(entry.createdAt, 11) + '</h4>' +
+                    '</div>' +
+                    '<div class="panel-body">' +
+                    '<small>' + '<span class="colorType">'  +  datetimeFormat(entry.title) + '  ' + entry.clock  + '</span>' + ' <br /> ' +
+                     entry.espec + ' | ' + entry.unidade + '</small>' +
+                    '</div>' +
+                    '</div>' +
+                    '</a>' +
+                    '</div>' +
+                    '<hr style="width:100%; height:2px; mleft:0px; border-width:0; color:black; background-color:black"> ' 
+                     + html; // prepend the entry because we need to display it in reverse order
+            });
+            
+
+            $('#entries1').html(html);
+        });
+
+        /*************\
+         * Utilities *
+        \*************/
+
+        function strip(html) {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || "";
+        }
+
+        function excerpt(text, length) {
+            text = strip(text);
+            text = $.trim(text); //trim whitespace
+            if (text.length > length) {
+                text = text.substring(length - 3);
+            }
+            return text;
+        }
+
+        function pad2Digit(num) {
+            return ('0' + num.toString()).slice(-2);
+        }
+
+        function datetimeFormat(timestamp) {
+            var dateObj = new Date(timestamp);
+            var en_month = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+            return dateObj.getUTCDate() + ' ' + en_month[dateObj.getMonth()] + ' ' + (dateObj.getFullYear());
+        }
+
+
+         
+            
+            ;
+        
+    </script>
+
+
+
+
+              
+
+
+</body>
+</html>
