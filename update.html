@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'"><link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="css/style1.css" rel="stylesheet" />
+    <script src="components/loader.js"></script>
+</head>
+<body>
+
+  <div class="update"> 
+     <br />
+          <h2>Triagem</h2>
+          <br /><br />
+
+        
+        <form id="update_entry">
+          <div id="questionario">
+           <div class="Pergunta" id="Pergunta-1">
+             <label name="per1">Tem dificuldade para respirar?</label></div>
+    
+            <div class="posicao" id="posi-1">
+                <div class="Opcao" id="ops-1"> 
+                    <label>
+                      <select name="res1">
+                        <option>Sim</option>
+                        <option>Não</option>
+                      </select> </label>
+                </div>
+
+            </div>
+            
+            <div class="Pergunta" id="Pergunta-2"><label>Tem dor no peito?</label></div>
+
+            <div class="posicao" id="posi-2">
+                <div class="Opcao" id="ops-1"> 
+                    <label name="per2">
+                      <select name="res2">
+                        <option>Sim</option>
+                        <option>Não</option>
+                      </select> </label>
+                </div>
+            </div>
+
+            <div class="Pergunta" id="Pergunta-3"><label name="per3">Tem alguma fratura?</label></div>
+            <div class="posicao" id="posi-3">
+                <div class="Opcao" id="ops-1"> 
+                    <label>
+                      <select name="res3">
+                        <option>Sim</option>
+                        <option>Não</option>
+                      </select> </label>
+                </div>
+            </div>
+
+            <div class="Pergunta" id="Pergunta-4"><label name="per4">Teve desmaio, tontura ou dor de cabeça?</label></div>
+            <div class="posicao" id="posi-4">
+                <div class="Opcao" id="ops-1"> 
+                    <label>
+                      <select name="res4">
+                        <option>Sim</option>
+                        <option>Não</option>
+                      </select> </label>
+                </div>
+            </div>
+
+             <div class="Pergunta" id="Pergunta-5"><label name="per5">Tem ou teve algum sangramento?</label></div>
+            <div class="posicao" id="posi-5">
+                <div class="Opcao" id="ops-1"> 
+                    <label>
+                      <select name="res5">
+                        <option>Sim</option>
+                        <option>Não</option>
+                      </select> </label>
+                </div>
+            </div>
+                       <br /> 
+                 <div class="">
+                <button class="btn btn-large btn-primary" id="btnUpdate">Salvar Alterações</button>
+            </div>
+            </div>
+        </form>
+
+     </div>     
+    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="http://cdn.ckeditor.com/4.5.10/standard/ckeditor.js"></script>
+
+    <script>
+        // firebase config
+       var firebaseConfig = {
+    apiKey: "AIzaSyBVvPiov7g1b7qu4My5QzmV_cxZYB8zcrs",
+    authDomain: "tcc-base.firebaseapp.com",
+    databaseURL: "https://tcc-base-default-rtdb.firebaseio.com",
+    projectId: "tcc-base",
+    storageBucket: "tcc-base.appspot.com",
+    messagingSenderId: "614509811465",
+    appId: "1:614509811465:web:ff274ea1fafdacac2725d8"
+  };
+
+firebase.initializeApp(firebaseConfig);
+
+
+ /*********************************\
+                 * Fetch the entry from Firebase *
+                \*********************************/
+                var entry_id = $_GET('id');
+
+                if (entry_id) {
+                    
+                    var Entry = firebase.database().ref('Prontuário').child(entry_id);
+
+                    Entry.once('value', function (r) { // once = just this once, no need to actively watch the changes
+                        var entry = r.val();
+
+                       
+                        
+                        $('#update_entry [name="per1"]').val(entry.per1);
+                        $('#update_entry [name="res1"]').val(entry.res1);
+                        $('#update_entry [name="per2"]').val(entry.per2);
+                        $('#update_entry [name="res2"]').val(entry.res2);
+                        $('#update_entry [name="per3"]').val(entry.per3);
+                        $('#update_entry [name="res3"]').val(entry.res3);
+                        $('#update_entry [name="per4"]').val(entry.per4);
+                        $('#update_entry [name="res4"]').val(entry.res4);
+                        $('#update_entry [name="per5"]').val(entry.per5);                 $('#update_entry [name="res5"]').val(entry.res5);
+                        
+                    });
+                    
+                    
+                    /**********************\
+                     * Save the form data *0
+                    \**********************/
+                    $('#update_entry').submit(function(e){
+                        
+                        Entry.transaction(function(entry){
+                            
+                            entry = entry || {};
+                            entry.per1 = $('#update_entry [name="per1"]').val();
+                            entry.res1 = $('#update_entry [name="res1"]').val();
+                            entry.per2 = $('#update_entry [name="per2"]').val();
+                            entry.res2 = $('#update_entry [name="res2"]').val();
+                            entry.per3 = $('#update_entry [name="per3"]').val();
+                            entry.per3 = $('#update_entry [name="per3"]').val();
+                            entry.res4 = $('#update_entry [name="res4"]').val();
+                            entry.per4 = $('#update_entry [name="per4"]').val();
+                            entry.res5 = $('#update_entry [name="res5"]').val();
+                            entry.per5 = $('#update_entry [name="per5"]').val();
+                            
+                            return entry;
+                            
+                        }).then(function(){
+                            window.location.href = 'entry.html?id='+entry_id;
+                        }).catch(function(error){
+                            alert(error);
+                        });
+
+                        return false;
+                    });
+                    
+                }else{
+                    window.location.href = 'prontuarios.html';
+                }
+                
+                
+            
+        ;
+        
+        
+        /*************\
+         * Utilities *
+        \*************/
+
+        function $_GET(key) {
+            var queries = window.location.href.split('?').pop().split('&');
+            var params = {};
+            queries.map(function (query) {
+                var set = query.split('=');
+                params[set[0]] = set[1];
+            });
+
+            if (key) {
+                return params[key] || null;
+            } else {
+                return params;
+            }
+
+        }
+        
+    </script>
+</body>
+</html>
