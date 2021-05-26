@@ -1,0 +1,700 @@
+body{
+    position: absolute;
+    max-width: 100%;
+    min-height:100% ;
+    background-color: rgba(195,248,222,1);
+    color: rgba(0,0,0,1);
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: bold;
+    top: 0px;
+    left: 0px;
+}
+
+.retoimg {
+    height: 175px;
+    width: 40px;
+    position: absolute;
+    left: 168px;
+}
+
+.ima {
+    width: 80px;
+    opacity: 0.6;
+    position: absolute;
+    top: 175px;
+    left: 150px;
+}
+
+.redondoimg {
+    width: 360px;
+    opacity: 0.24;
+    position: absolute;
+    top: 150px;
+    left: 7px;
+}
+
+.titulo{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    font-size: 32px;
+    position: absolute;
+}
+
+#login .titulo{
+    top: 210px;
+    left: 140px;
+}
+
+#login .campos{
+    position: absolute;
+    top: 250px;
+    left: 45px;
+}
+
+#login .campos label {
+    padding: 10px 5px 10px 30px;
+    font-family: Arial Narrow;
+    background-color: transparent;
+    color: darkgrey;
+    font-size: 18px;
+    font-weight: bolder;
+    border: 4px solid #ffffff;
+}
+
+#login .campos input{
+    height: 30px;
+    width: 240px;
+    margin-top: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+.imgusuario {
+    background-image: url(usteste.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 20px;
+}
+
+.imgsenha {
+    background-image: url(Imagem1TESTE.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 20px;
+}
+
+.aconts img{
+    height: 16px;
+    width: 16px;
+    margin-top: 12px;
+}
+
+#esqSenha {
+    font-family: Arial Narrow;
+    font-size: 15px;
+    color: black;
+    position: absolute;
+    top: 135px;
+    right: 10px;
+}
+
+#esqSenha:hover{
+    color: #ffffff;
+}
+
+.btn{
+    height: 40px;
+    width: 160px;
+    font-family: Arial Narrow;
+    font-size: 20.6px;
+    font-weight: 600;
+    color: black;
+    background-color: darkgrey;
+    border-radius: 30px;
+    border: none;
+    position: absolute;
+    top: 435px;
+    left: 110px;
+}
+
+.btn:hover{
+    color: #ffffff;
+}
+
+#cadastrar{
+    font-family: Arial Narrow;
+    font-size: 14px;
+    color: black;
+    position: absolute;
+    top: 485px;
+    left: 150px;
+}
+
+#cadastrar:hover{
+    color: #ffffff;
+}
+
+.fundoCadast {
+    width: 360px;
+    position: absolute;
+    top: 150px;
+    left: 25px;
+}
+
+#resetSenha .titulo{
+    top: 215px;
+    left: 100px;
+}
+
+#resetSenha .campos{
+    position: absolute;
+    top: 280px;
+    left: 85px;
+}
+
+#resetSenha input{
+    width: 230px;
+    border: solid 2px;
+    border-radius: 5px;
+    margin-top: 7px;
+    padding: 7px 5px;
+}
+
+#resetSenha .btn{
+    top: 420px;
+}
+
+#cadastro .titulo{
+    top: 215px;
+    left: 140px;
+}
+
+#cadastro .campos{
+    position: absolute;
+    top: 280px;
+    left: 85px;
+}
+
+#cadastro input{
+    width: 230px;
+    border: solid 2px;
+    border-radius: 5px;
+    margin-top: 7px;
+    padding: 7px 5px;
+}
+
+#cadastro .btn{
+    top: 420px;
+}
+
+.Pergunta{
+    position: absolute;
+    width: 330px;
+    height: 60px;
+    text-align: center;
+    left: 20px;
+    opacity: 1;
+}
+
+.posicao{
+    position: absolute;
+    left: 40px;
+}
+
+#Pergunta-1{
+    top: 80px;
+}
+
+#posi-1{
+    top: 120px;
+}
+
+#Pergunta-2{
+    top: 200px;
+}
+
+#posi-2{
+    top: 240px;
+}
+
+#Pergunta-3{
+    top: 320px;
+}
+
+#posi-3{
+    top: 360px;
+}
+
+#Pergunta-4{
+    top: 440px;
+}
+
+#posi-4{
+    top: 500px;
+}
+
+#Pergunta-5{
+    top: 570px;
+}
+
+#posi-5{
+  top: 630px;
+
+}
+
+.Opcao select:hover{
+    background: rgba(50,128,90,1);
+    color: rgba(255,255,255,1);
+    border: 2px solid rgba(255,255,255,1);
+}
+
+.Opcao select{
+    width: 150px;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 50%;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    font-size: 21px;
+    font-weight: bold;
+    border: 2px solid rgba(0,0,0,1);
+    border-radius: 10px;
+    overflow: hidden;    
+}
+
+.Opcao option{
+  background: white;
+  color: black;
+  border-radius: 15px;
+
+}
+
+.Opcao input{
+    opacity: 0;
+}
+
+#questionario button{
+    width: 130px;
+    height: 35px;
+    background: rgba(50,128,90,1);
+    color: rgba(255,255,255,1);
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 18px;
+    opacity: 1;
+    position: absolute;
+    top: 715px;
+    left: 124px;
+    border: 2px solid rgba(255,255,255,1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#questionario button:hover{
+    background: rgba(255,255,255,1);
+    color: rgba(50,128,90,1);
+    border: 2px solid rgba(50,128,90,1);
+}
+
+
+h2{
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+}
+
+.ficha{
+font-size: 12px;
+}
+
+#delete{
+   position: absolute;
+   border-radius: 20px;
+   margin-top: 22%; 
+   left: 55%;
+   width: 100px;
+   font-size: 16px;
+  
+}
+
+#update{
+  position: absolute;
+  border-radius: 20px;
+  margin-top: 22%;
+  left: 15%;  
+  width: 100px;
+  font-size: 16px;
+}
+
+article{
+text-align: justify;
+margin-left: 20%;
+
+}
+
+
+#btnEntrar{
+  margin-top: 35%;
+
+  
+}
+
+#btnUpdate{
+  margin-top: 75%;
+  font-size: 16px;
+}
+
+#update_entry{
+  margin-top: 15px;
+
+}
+
+.update h2{
+  margin-left: 140px; 
+
+}
+
+.update .Pergunta{
+  left: 35px;
+}
+
+.update .posicao{
+    position: absolute;
+    left: 50px;
+}
+
+.update #Pergunta-1{
+    top: 120px;
+}
+
+.update #posi-1{
+    top: 160px;
+}
+
+.update #Pergunta-2{
+    top: 230px;
+}
+
+.update #posi-2{
+    top: 270px;
+}
+
+.update #Pergunta-3{
+    top: 340px;
+}
+
+.update #posi-3{
+    top: 380px;
+}
+
+.update #Pergunta-4{
+    top: 450px;
+}
+
+.update #posi-4{
+    top: 520px;
+}
+
+.update #Pergunta-5{
+    top: 590px;
+}
+
+.update #posi-5{
+  top: 660px;
+
+}
+
+.update #btnUpdate{
+  width: 150px;
+  margin-top: 25px;
+  font-size: 16px;
+
+
+}
+
+
+/*@media screen and (max-width: 420px){
+    .Pergunta{
+        left: 45px;
+    }
+    .posicao{
+        left: 40px;
+    }
+    #Pergunta-1{
+        top: 100px;
+    }
+    
+    #posi-1{
+        top: 150px;
+    }
+    
+    #Pergunta-2{
+        top: 215px;
+    }
+    
+    #posi-2{
+        top: 265px;
+    }
+    
+    #Pergunta-3{
+        top: 320px;
+    }
+    
+    #posi-3{
+        top: 370px;
+    }
+    
+    #Pergunta-4{
+        top: 425px;
+    }
+    
+    #posi-4{
+        top: 475px;
+    }
+    #questionario button{
+        top: 1550px;
+        left: 118px;
+    }
+}*/
+
+@media screen and (max-width: 375px){
+
+  .Pergunta{
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    text-align: center;
+    left: 15px;
+    opacity: 1;
+}
+       .retoimg{
+        height: 170px;
+        left: 160px;
+    }
+
+    .ima {
+        top: 170px;
+        left: 140px;
+    }
+
+    .redondoimg {
+        width: 330px;
+        left: 10px;
+    }
+
+    #login .titulo{
+        top: 198px;
+        left: 133px;
+    }
+
+    #login .campos{
+        top: 255px;
+        left: 50px;
+    }
+
+    #login .campos label{
+        padding: 5px 5px 5px 30px;
+    }
+
+    #login .campos input{
+        width: 210px;
+        margin-top: 20px;
+    }
+
+    .aconts img{
+        margin-top: 5px;
+    }
+
+    #esqSenha{
+        font-size: 13.5px;
+        top: 110px;
+        right: 10px;
+    }
+
+    .btn{
+        height: 40px;
+        width: 130px;
+        font-size: 16px;
+        top: 410px;
+        left: 120px;
+    }
+
+    #cadastrar{
+        top: 460px;
+        left: 150px;
+    }
+
+    .fundoCadast{
+        width: 330px;
+        left: 30px;
+    }
+
+    #resetSenha .titulo{
+        top: 210px;
+        left: 90px;
+    }
+
+    #resetSenha .campos{    
+        top: 265px;
+        left: 75px;
+    }
+
+    #resetSenha .btn{
+        top: 405px;
+    }
+
+    #cadastro .titulo{
+        top: 210px;
+        left: 135px;
+    }
+    
+    #cadastro .campos{
+        top: 265px;
+        left: 75px;
+    }
+    
+    #cadastro .btn{
+        top: 405px;
+    }
+
+    .posicao{
+        left: 22px;
+    }
+
+    #Pergunta-1{
+        top: 80px;
+    }
+    
+    #posi-1{
+        top: 140px;
+    }
+    
+    #Pergunta-2{
+        top: 210px;
+    }
+    
+    #posi-2{
+        top: 245px;
+    }
+    
+    #Pergunta-3{
+        top: 315px;
+    }
+    
+    #posi-3{
+        top: 350px;
+    }
+    
+    #Pergunta-4{
+        top: 420px;
+    }
+    
+    #posi-4{
+        top: 475px;
+    }
+
+    #Pergunta-5{
+        top: 545px;
+    }
+    
+    #posi-5{
+        top: 615px;
+    }
+
+    #questionario button{
+        top: 710px;
+        left: 110px;
+    }
+
+
+    #delete{
+   margin-top: 40%; 
+   left: 60%;
+   width: 100px;
+   font-size: 16px;
+  
+}
+
+#update{
+  margin-top: 40%;
+  left: 20%;  
+  width: 100px;
+  font-size: 16px;
+}
+
+    
+.update h2{
+  margin-left: 123px; 
+}
+
+.update{
+  font-size: 20px;
+
+}
+
+.update #btnUpdate{
+  text-align: center;
+  margin-top: 0px;
+  font-size: 14px; 
+
+}
+
+.update .Pergunta{
+    text-align: center;
+    left: 23px;
+}
+
+.update .posicao{
+        left: 28px;
+    }
+
+.update #Pergunta-1{
+        top: 100px;
+    }
+    
+.update #posi-1{
+        top: 140px;
+    }
+    
+.update #Pergunta-2{
+        top: 210px;
+    }
+    
+.update #posi-2{
+        top: 250px;
+    }
+    
+.update #Pergunta-3{
+        top: 320px;
+    }
+    
+.update #posi-3{
+        top: 360px;
+    }
+    
+.update #Pergunta-4{
+        top: 430px;
+    }
+    
+.update #posi-4{
+        top: 495px;
+    }
+
+.update #Pergunta-5{
+        top: 565px;
+    }
+    
+.update #posi-5{
+        top: 605px;
+    }
+
+.update .Opcao select{
+    font-size: 18px;
+      
+}
+
+
+}
