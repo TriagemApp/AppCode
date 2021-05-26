@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+	<script src="components/loader.js"></script>
+	<link rel="stylesheet" href="components/loader.css">
+	<link rel="stylesheet" href="css/style1.css">
+	<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet">
+
+	<script>
+
+	</script>
+</head>
+
+<body>
+
+	<div class="agend">
+		<a href="profile.html" id="btnEntrar" role="button"><img src="left-arrow.png" class="seta" alt "boatos"></a>
+
+		<br /><br />
+
+		<div class="container">
+			<div class="col-12 offset-3">
+
+				<h2>Agendamento</h2>
+				<br />
+
+
+				<form id="new_entry2">
+					<div id="quest">
+						<label for="emailTop">Data:</label>
+						<input type="date" name="title" class="form-control user-input" required=""><br/>
+
+						<label for="emailTop">Horário</label>
+						<input type="time" name="clock" data-key="horário" class="form-control user-input" required=""> <br/>
+
+						<label for="exampleFormControlSelect1">Especialidade: </label>
+						<select class="form-control user-input" name="espec" data-key="sexo" id="exampleFormControlSelect1">
+                    <option>Ortopedista</option>
+                    <option>Clínico Geral</option>
+                    <option>Pediatra</option>
+                    <option>Oftalmologista</option>  
+                    <option>Ginecologista</option>
+                    <option>Neurologista</option>                              
+                   </select><br/>
+
+
+						<label for="exampleFormControlSelect1">Unidade: </label>
+						<select class="form-control user-input" name="unidade" data-key="unidade" id="exampleFormControlSelect1">
+                    <option>Campo Limpo</opttion>                            
+                    <option>Capão Redondo</option>
+                    <option>Guarapiranga</option>
+                    <option>Santo Amaro</option>
+                   </select>
+						<div class="text-right">
+							<button id="btn">Agendar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+	<script src="http://cdn.ckeditor.com/4.5.10/standard/ckeditor.js"></script>
+
+	<script>
+		var firebaseConfig = {
+    apiKey: "AIzaSyBVvPiov7g1b7qu4My5QzmV_cxZYB8zcrs",
+    authDomain: "tcc-base.firebaseapp.com",
+    databaseURL: "https://tcc-base-default-rtdb.firebaseio.com",
+    projectId: "tcc-base",
+    storageBucket: "tcc-base.appspot.com",
+    messagingSenderId: "614509811465",
+    appId: "1:614509811465:web:ff274ea1fafdacac2725d8"
+  };
+
+firebase.initializeApp(firebaseConfig);
+        ////////////////////////////////////
+                
+                /***************************************************\
+                 * Process form data and save to Firebase database *
+                \***************************************************/
+                
+                $('#new_entry2').submit(function(e){
+                    e.preventDefault();
+                    var Entry = firebase.database().ref('Entry');
+
+                    
+                    var entry = {};
+                    entry.title = $(this).find('[name="title"]').val();
+                    entry.clock = $(this).find('[name="clock"]').val();
+                    entry.espec = $(this).find('[name="espec"]').val();
+                    entry.unidade = $(this).find('[name="unidade"]').val();
+                    entry.createdAt = new Date().getTime();
+                   
+                    
+                    
+                    
+                    Entry.push(entry).then(function(data){
+                        window.location.href = 'meusagend.html'
+                    }).catch(function(error){
+                        alert(error);
+                        console.error(error);
+                    })
+                    
+                    return false;
+                });
+                
+            
+        ;
+
+        var sorteados = [];
+        var valorMaximo = 1000;
+
+        function criarUnico() {
+            var sugestao = Math.ceil(Math.random() * valorMaximo); // Escolher um numero ao acaso
+            while (sorteados.indexOf(sugestao) >= 0) {  // Enquanto o numero já existir, escolher outro
+                sugestao = Math.ceil(Math.random() * valorMaximo);
+            }
+            sorteados.push(sugestao); // adicionar este numero à array de numeros sorteados para futura referência
+            return sugestao; // devolver o numero único
+}
+	</script>
+
+
+</body>
+
+</html>
