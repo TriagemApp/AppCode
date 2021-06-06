@@ -139,6 +139,5 @@ Github: https://github.com/TriagemApp
 ### 5 - Referências
 - Para o desenvolvimento da tela do Médico : https://www.youtube.com/watch?v=itNsRn1kjLU&t=864s<br />
 - Para utilização do Monaca: https://docs.monaca.io/en/tutorials/<br />
-- Para a utilização do Firebase:<br />
-- https://firebase.google.com/?gclid=Cj0KCQjw5PGFBhC2ARIsAIFIMNeQ8v4Tqo04DRkQHxpdmvcLs7qqeq9DufueaF5fIq434jpg1PYZNL8aAmXEEALw_wcB&gclsrc=aw.ds
+- Para a utilização do Firebase: https://firebase.google.com/?gclid=Cj0KCQjw5PGFBhC2ARIsAIFIMNeQ8v4Tqo04DRkQHxpdmvcLs7qqeq9DufueaF5fIq434jpg1PYZNL8aAmXEEALw_wcB&gclsrc=aw.ds
 
