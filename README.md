@@ -21,7 +21,7 @@ usuário/paciente, convênio médico e Hospital.
 O Usuário poderá efetuar login, Iniciar o atendimento, Agendar e editar consultas,Visualizar históricos e solicitar senha direto para o Pronto Socorro.
 O Médico/ADM poderá efetuar login e Descrever Plantão.
 
-![image](https://user-images.githubusercontent.com/69824123/120929841-08967d00-c6c1-11eb-9b23-c0b01348f9eb.png)
+![Diagrama - Use Case](https://user-images.githubusercontent.com/69824123/121077374-ef1f2f00-c7ad-11eb-8808-074f83962e7b.png)
 
 
 Usuários:
