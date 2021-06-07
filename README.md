@@ -89,6 +89,15 @@ O Triagem App, disponibilizará uma versão mais administrativa para controle do
 ![image](https://user-images.githubusercontent.com/69824123/120930202-b6565b80-c6c2-11eb-986d-a720ebe390f5.png)
 
 <br />
+
+#### Linguagens Utilizadas:
+- HTML
+- CSS
+- Jquery
+- JavaScript
+
+<br />
+
 Github: https://github.com/TriagemApp
 
 <br /><br />
