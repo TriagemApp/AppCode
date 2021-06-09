@@ -31,7 +31,8 @@ Usuários:
 <br />
 
 #### Principais Funcionalidades:
-- [x] Logar;
+- [ ] Logar;
+- [x] Validação;
 - [x]	Descrição e controle de plantão;
 - [x]	Iniciar atendimento (Processo de Triagem);
 - [x]	Agendar consultas;
